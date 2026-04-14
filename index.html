@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#8B2D50">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Cotillón Bambinos — Catálogo</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#FFD6E7;--rose-mid:#F5A8C4;--rose-dark:#C9547A;--rose-deep:#8B2D50;
+  --mint:#C5F0DC;--mint-mid:#7ED9AD;--mint-dark:#2D9967;--mint-deep:#16553A;
+  --lav:#E2D5F8;--lav-mid:#BBA0EF;--lav-dark:#6C3FC8;--lav-deep:#3B1E7A;
+  --yel:#FFF3C4;--yel-mid:#FFD96A;--yel-dark:#D4940A;--yel-deep:#7A5200;
+  --sky:#D0EEFF;--sky-mid:#80C8F8;--sky-dark:#1A7DC4;--sky-deep:#0A3E6B;
+  --peach:#FFE4CC;--peach-mid:#FFB380;--peach-dark:#D46020;--peach-deep:#7A3200;
+  --cream:#FFF9F3;--white:#FFFEFA;--ink:#1E1018;--ink2:#4A3040;--ink3:#7A6070;
+  --shadow-soft:0 8px 32px rgba(139,45,80,0.08);
+  --shadow-card:0 4px 24px rgba(139,45,80,0.10);
+  --shadow-float:0 16px 48px rgba(139,45,80,0.18);
+  --radius-sm:10px;--radius-md:16px;--radius-lg:24px;--radius-xl:36px;--radius-full:999px;
+  --t:all 0.35s cubic-bezier(0.25,0.8,0.25,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+.cursor{position:fixed;width:12px;height:12px;background:var(--rose-dark);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;mix-blend-mode:multiply}
+.cursor-follower{position:fixed;width:36px;height:36px;border:2px solid var(--rose-dark);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);opacity:0.45;transition:width .25s,height .25s,opacity .3s}
+.cursor.hov{width:22px;height:22px;background:var(--lav-dark)}
+.cursor-follower.hov{width:50px;height:50px;opacity:0.18}
+
+/* TOPBAR */
+.topbar{background:var(--rose-deep);color:#fff;font-size:12px;font-weight:500;padding:9px 20px;overflow:hidden;text-align:center}
+.topbar-inner{display:inline-flex;gap:80px;animation:marquee 26s linear infinite;white-space:nowrap}
+.topbar-item{display:inline-flex;align-items:center;gap:8px;opacity:.95}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* NAV */
+nav{background:rgba(255,249,243,.93);backdrop-filter:blur(16px);position:sticky;top:0;z-index:900;border-bottom:1px solid rgba(201,84,122,.12);padding:0 48px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--rose-dark),var(--lav-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 12px rgba(201,84,122,.28);transition:var(--t)}
+.logo:hover .logo-icon{transform:rotate(-8deg) scale(1.07)}
+.logo-text{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--rose-deep);line-height:1}
+.logo-text span{display:block;font-size:11px;font-weight:400;font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink3);letter-spacing:1.5px;text-transform:uppercase}
+.nav-wa-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;border:none;padding:10px 22px;border-radius:var(--radius-full);font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 4px 14px rgba(37,211,102,.3);transition:var(--t);text-decoration:none;white-space:nowrap}
+.nav-wa-btn:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 7px 22px rgba(37,211,102,.45)}
+
+/* HERO COMPACTO */
+.hero-compact{
+  background:linear-gradient(145deg,#FFF0F7 0%,#F5EEFF 45%,#EBF5FF 100%);
+  padding:56px 48px 48px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-compact::before{
+  content:'';
+  position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23C9547A' fill-opacity='0.07'/%3E%3C/svg%3E") repeat;
+  pointer-events:none;z-index:0;
+}
+.hero-compact::after{
+  content:'';
+  position:absolute;top:-120px;right:-120px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%,rgba(255,214,231,.55),rgba(226,213,248,.30) 55%,transparent 75%);
+  pointer-events:none;
+  animation:blobDrift 10s ease-in-out infinite alternate;z-index:0;
+}
+@keyframes blobDrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-30px,20px) scale(1.08)}}
+.hero-blob2{
+  position:absolute;bottom:-80px;left:-80px;
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(197,240,220,.55),rgba(208,238,255,.30) 55%,transparent 75%);
+  pointer-events:none;
+  animation:blobDrift2 12s ease-in-out infinite alternate;z-index:0;
+}
+@keyframes blobDrift2{0%{transform:translate(0,0) scale(1)}100%{transform:translate(20px,-25px) scale(1.06)}}
+.hero-blob3{
+  position:absolute;top:30%;left:38%;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,243,196,.60),transparent 70%);
+  pointer-events:none;
+  animation:blobDrift 8s ease-in-out infinite alternate-reverse;z-index:0;
+}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}
+.hero-pill{display:inline-flex;align-items:center;gap:10px;background:var(--rose);color:var(--rose-deep);font-size:12px;font-weight:600;padding:7px 16px;border-radius:var(--radius-full);margin-bottom:18px;letter-spacing:.5px;border:1px solid rgba(201,84,122,.2)}
+.hero-pill .dot{width:7px;height:7px;background:var(--rose-dark);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.hero-title{font-family:'Fraunces',serif;font-size:clamp(34px,4vw,52px);line-height:1.1;font-weight:700;color:var(--ink);margin-bottom:14px}
+.hero-title em{color:var(--rose-dark);font-style:italic}
+.hero-desc{font-size:16px;color:var(--ink3);line-height:1.7;font-weight:300;max-width:460px;margin-bottom:28px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn-hero-primary{background:linear-gradient(135deg,var(--rose-dark),var(--lav-dark));color:#fff;border:none;padding:14px 30px;border-radius:var(--radius-full);font-size:15px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 6px 22px rgba(201,84,122,.32);transition:var(--t);position:relative;overflow:hidden}
+.btn-hero-primary::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transition:left .5s}
+.btn-hero-primary:hover::after{left:100%}
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,84,122,.42)}
+.btn-hero-wa{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;border:none;padding:14px 28px;border-radius:var(--radius-full);font-size:15px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 6px 20px rgba(37,211,102,.32);transition:var(--t);text-decoration:none;position:relative;overflow:hidden}
+.btn-hero-wa::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transition:left .5s}
+.btn-hero-wa:hover::after{left:100%}
+.btn-hero-wa:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,.44)}
+/* Cluster de emojis flotantes en hero — REDISEÑADO con imagen */
+.hero-emojis{
+  display:flex;flex-direction:column;gap:16px;
+  position:relative;z-index:1;
+  padding:28px 24px 28px 28px;
+  border-radius:var(--radius-xl);
+  /* Fondo animado llamativo */
+  background:linear-gradient(135deg,#FFB3D1 0%,#D4A8FF 35%,#A8D8FF 65%,#B3FFDA 100%);
+  background-size:300% 300%;
+  animation:gradientShift 7s ease infinite;
+  box-shadow:
+    0 20px 60px rgba(201,84,122,.22),
+    0 8px 24px rgba(108,63,200,.15),
+    inset 0 1px 0 rgba(255,255,255,.5);
+  overflow:visible;
+}
+/* Fondo de gradiente en movimiento */
+@keyframes gradientShift{
+  0%  {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+/* Partículas decorativas dentro del bloque */
+.hero-emojis::before{
+  content:'🎀 ✨ 🎊 🌸 ⭐ 🎈 💜 🎂';
+  position:absolute;
+  top:-2px;left:0;right:0;
+  font-size:13px;
+  letter-spacing:8px;
+  opacity:.18;
+  pointer-events:none;
+  white-space:nowrap;
+  overflow:hidden;
+  animation:tickerDrift 18s linear infinite;
+  z-index:0;
+  line-height:1.4;
+}
+.hero-emojis::after{
+  content:'🍬 🧁 🦄 🎁 💫 🎭 🌈 🍭';
+  position:absolute;
+  bottom:-2px;left:0;right:0;
+  font-size:13px;
+  letter-spacing:8px;
+  opacity:.18;
+  pointer-events:none;
+  white-space:nowrap;
+  overflow:hidden;
+  animation:tickerDrift 22s linear infinite reverse;
+  z-index:0;
+  line-height:1.4;
+}
+@keyframes tickerDrift{
+  0%  {transform:translateX(0)}
+  100%{transform:translateX(-40%)}
+}
+
+.he-item{
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:var(--radius-lg);
+  padding:14px 18px 14px 22px;
+  display:flex;align-items:center;gap:14px;
+  border:1px solid rgba(255,255,255,.95);
+  box-shadow:0 8px 32px rgba(139,45,80,.12),0 2px 8px rgba(139,45,80,.06);
+  animation:floatSlow 5s ease-in-out infinite;
+  min-width:240px;position:relative;overflow:hidden;
+  transition:box-shadow .3s,transform .3s;cursor:default;
+  z-index:1;
+}
+.he-item:hover{box-shadow:0 14px 44px rgba(139,45,80,.18);transform:translateY(-4px) !important}
+.he-item:nth-child(2){animation-delay:1.4s}
+.he-item:nth-child(3){animation-delay:2.8s}
+/* Franja de color lateral */
+.he-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
+.he-item.hi-rose::before{background:linear-gradient(180deg,var(--rose-dark),var(--lav-dark))}
+.he-item.hi-mint::before{background:linear-gradient(180deg,var(--mint-dark),var(--sky-dark))}
+.he-item.hi-lav::before{background:linear-gradient(180deg,var(--lav-dark),var(--rose-dark))}
+/* Imagen del producto */
+.he-img-wrap{
+  width:56px;height:56px;border-radius:var(--radius-md);
+  overflow:hidden;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.he-item.hi-rose .he-img-wrap{background:linear-gradient(135deg,#FFF0F5,#FFE0EE)}
+.he-item.hi-mint .he-img-wrap{background:linear-gradient(135deg,#F0FFF8,#D8F8ED)}
+.he-item.hi-lav  .he-img-wrap{background:linear-gradient(135deg,#F3EEFF,#E8DCFC)}
+.he-img{width:100%;height:100%;object-fit:contain;padding:6px;transition:transform .4s cubic-bezier(.25,.8,.25,1)}
+.he-item:hover .he-img{transform:scale(1.12) rotate(-4deg)}
+/* Texto */
+.he-info{flex:1;min-width:0}
+.he-name{font-size:13px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.he-sub{font-size:11px;font-weight:400;color:var(--ink3);margin-bottom:3px}
+.he-price{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--rose-dark)}
+.he-arrow{font-size:14px;color:var(--rose-dark);opacity:.4;transition:opacity .3s,transform .3s;flex-shrink:0}
+.he-item:hover .he-arrow{opacity:1;transform:translateX(3px)}
+@keyframes floatSlow{
+  0%,100%{transform:translateY(0) rotate(-.3deg)}
+  50%{transform:translateY(-10px) rotate(.3deg)}
+}
+
+/* SEARCH & FILTERS */
+.search-section{background:#fff;border-bottom:1px solid rgba(201,84,122,.08);padding:28px 48px;position:sticky;top:68px;z-index:800}
+.search-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.search-bar-wrap{display:flex;gap:12px;align-items:center}
+.search-box{display:flex;align-items:center;gap:12px;background:rgba(201,84,122,.05);border:1.5px solid rgba(201,84,122,.14);border-radius:var(--radius-full);padding:13px 22px;flex:1;max-width:520px;transition:var(--t);flex-direction:row-reverse}
+.search-box:focus-within{background:#fff;border-color:var(--rose-dark);box-shadow:0 0 0 4px rgba(201,84,122,.10)}
+.search-icon{font-size:18px;flex-shrink:0;color:var(--ink3)}
+.search-box input{border:none;background:transparent;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;color:var(--ink);outline:none;width:100%}
+.search-box input::placeholder{color:var(--ink3)}
+.search-clear{background:none;border:none;cursor:pointer;font-size:16px;color:var(--ink3);padding:0;transition:var(--t);display:none;line-height:1}
+.search-clear:hover{color:var(--rose-dark)}
+.search-clear.visible{display:block}
+.result-pill{background:var(--rose);color:var(--rose-deep);font-size:13px;font-weight:600;padding:7px 16px;border-radius:var(--radius-full);white-space:nowrap;border:1px solid rgba(201,84,122,.15)}
+
+/* FILTER CHIPS */
+.filter-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chip{border:1.5px solid rgba(201,84,122,.18);background:transparent;color:var(--ink2);font-size:13px;font-weight:500;padding:7px 18px;border-radius:var(--radius-full);cursor:pointer;transition:var(--t);font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.chip:hover{border-color:var(--rose-dark);color:var(--rose-dark);background:rgba(201,84,122,.05)}
+.chip.active{background:var(--rose-dark);color:#fff;border-color:var(--rose-dark);box-shadow:0 4px 14px rgba(201,84,122,.28)}
+.chip-div{width:1px;height:22px;background:rgba(201,84,122,.14);flex-shrink:0}
+.sort-select{border:1.5px solid rgba(201,84,122,.18);background:var(--white);color:var(--ink2);font-size:13px;font-weight:500;padding:8px 16px;border-radius:var(--radius-full);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:var(--t);margin-left:auto}
+.sort-select:focus{border-color:var(--rose-dark)}
+
+/* CATALOGUE BODY — fondo animado */
+.catalogue{
+  padding:48px 48px 80px;
+  max-width:1248px;
+  margin:0 auto;
+  position:relative;
+}
+/* Fondo de toda la sección catálogo */
+.catalogue-bg{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  /* Gradiente en movimiento suave */
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 30%, rgba(255,214,231,.28) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 80% 70%, rgba(226,213,248,.22) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 10%, rgba(197,240,220,.18) 0%, transparent 50%),
+    linear-gradient(180deg, var(--cream) 0%, #FDF5FF 50%, #F0F9FF 100%);
+  background-size:200% 200%;
+  animation:catalogueBg 14s ease-in-out infinite alternate;
+}
+@keyframes catalogueBg{
+  0%  {background-position:0% 0%}
+  33% {background-position:100% 30%}
+  66% {background-position:30% 100%}
+  100%{background-position:60% 50%}
+}
+/* Puntos decorativos flotantes en el fondo */
+.catalogue-bg::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle 3px at 15% 25%, rgba(201,84,122,.12) 0%, transparent 100%),
+    radial-gradient(circle 2px at 42% 18%, rgba(108,63,200,.10) 0%, transparent 100%),
+    radial-gradient(circle 3px at 70% 35%, rgba(45,153,103,.10) 0%, transparent 100%),
+    radial-gradient(circle 2px at 88% 55%, rgba(201,84,122,.09) 0%, transparent 100%),
+    radial-gradient(circle 3px at 25% 72%, rgba(26,125,196,.10) 0%, transparent 100%),
+    radial-gradient(circle 2px at 60% 85%, rgba(108,63,200,.09) 0%, transparent 100%),
+    radial-gradient(circle 4px at 92% 15%, rgba(201,84,122,.08) 0%, transparent 100%);
+  animation:dotsDrift 20s ease-in-out infinite alternate;
+}
+@keyframes dotsDrift{
+  0%  {transform:translate(0,0)}
+  50% {transform:translate(8px,-6px)}
+  100%{transform:translate(-5px,10px)}
+}
+
+/* PRODUCT CARD — border animado + entrada */
+.product-card{
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  border:1px solid rgba(201,84,122,.08);
+  transition:var(--t);
+  cursor:pointer;
+  position:relative;
+  /* Entrada escalonada */
+  animation:cardEntrance .5s cubic-bezier(.25,.8,.25,1) both;
+}
+@keyframes cardEntrance{
+  from{opacity:0;transform:translateY(22px) scale(.97)}
+  to  {opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Hover: sube + sombra rosa-lila */
+.product-card:hover{
+  transform:translateY(-8px) scale(1.01);
+  box-shadow:
+    0 20px 50px rgba(201,84,122,.16),
+    0 8px 20px rgba(108,63,200,.08),
+    0 0 0 1.5px rgba(201,84,122,.14);
+}
+/* Efecto shimmer en el borde al hover */
+.product-card::after{
+  content:'';
+  position:absolute;inset:0;
+  border-radius:inherit;
+  background:linear-gradient(
+    130deg,
+    transparent 0%,
+    rgba(255,255,255,.0) 35%,
+    rgba(255,255,255,.55) 50%,
+    rgba(255,255,255,.0) 65%,
+    transparent 100%
+  );
+  background-size:250% 250%;
+  background-position:200% 200%;
+  pointer-events:none;
+  transition:background-position .6s ease;
+  z-index:3;
+}
+.product-card:hover::after{
+  background-position:-20% -20%;
+}
+/* Touch también activa el shimmer */
+.product-card.touched::after{
+  background-position:-20% -20%;
+}
+.cat-section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;gap:16px}
+.cat-section-label{display:flex;align-items:center;gap:12px}
+.cat-section-emoji{font-size:26px}
+.cat-section-title{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--ink)}
+.cat-section-count{font-size:13px;color:var(--ink3);font-weight:400}
+.cat-section-line{flex:1;height:1px;background:rgba(201,84,122,.1);margin:0 16px}
+
+/* PRODUCTS GRID */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;margin-bottom:64px}
+
+/* PRODUCT CARD */
+.product-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(201,84,122,.08);transition:var(--t);cursor:pointer;position:relative}
+.product-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-float)}
+/* Image */
+.pc-img{height:210px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:var(--t)}
+.pc-emoji{font-size:80px;display:block;transition:transform .4s cubic-bezier(.25,.8,.25,1),filter .4s ease;filter:drop-shadow(0 4px 8px rgba(0,0,0,.09))}
+.product-card:hover .pc-emoji,.product-card.touched .pc-emoji{transform:scale(1.12);filter:drop-shadow(0 8px 18px rgba(0,0,0,.15))}
+/* Tags */
+.pc-tags{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;gap:5px;z-index:2}
+.pc-tag{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);letter-spacing:.3px;border:1px solid transparent}
+.t-hot{background:var(--rose);color:var(--rose-deep);border-color:rgba(201,84,122,.2)}
+.t-new{background:var(--mint);color:var(--mint-deep);border-color:rgba(45,153,103,.2)}
+.t-sale{background:var(--yel);color:var(--yel-deep);border-color:rgba(212,148,10,.2)}
+.t-ltd{background:var(--lav);color:var(--lav-deep);border-color:rgba(108,63,200,.2)}
+/* Wish */
+.pc-wish{position:absolute;top:10px;right:10px;width:32px;height:32px;background:rgba(255,255,255,.88);border:1px solid rgba(201,84,122,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--t);font-size:15px;z-index:2;backdrop-filter:blur(4px);outline:none}
+.pc-wish:hover,.pc-wish.liked{background:var(--rose);border-color:var(--rose-mid);transform:scale(1.12)}
+/* WA Overlay */
+.pc-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(30,16,24,.82) 0%,transparent 100%);padding:22px 16px 16px;transform:translateY(100%);transition:transform .32s cubic-bezier(.25,.8,.25,1);pointer-events:none;display:flex;flex-direction:column;gap:8px}
+.product-card:hover .pc-overlay,.product-card.touched .pc-overlay{transform:translateY(0);pointer-events:all}
+.pc-overlay-desc{font-size:12.5px;color:rgba(255,255,255,.88);font-weight:300;line-height:1.5;margin:0}
+.btn-wa-overlay{display:flex;align-items:center;justify-content:center;gap:9px;background:#25D366;color:#fff;border:none;width:100%;padding:11px;border-radius:var(--radius-full);font-size:13.5px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 14px rgba(37,211,102,.35);letter-spacing:.1px}
+.btn-wa-overlay:hover{background:#1ebe5d;transform:translateY(-1px);box-shadow:0 6px 18px rgba(37,211,102,.48)}
+/* Body */
+.pc-body{padding:16px 18px 18px}
+.pc-cat{font-size:10px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:5px}
+.pc-name{font-family:'Fraunces',serif;font-size:16.5px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.pc-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pc-prices{display:flex;align-items:baseline;gap:6px}
+.pc-price{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--rose-deep)}
+.pc-old{font-size:12px;color:var(--ink3);text-decoration:line-through;font-weight:400}
+.btn-wa-card{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;border:none;padding:9px 15px;border-radius:var(--radius-full);font-size:12.5px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:var(--t);text-decoration:none;box-shadow:0 3px 10px rgba(37,211,102,.26);white-space:nowrap;flex-shrink:0}
+.btn-wa-card:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 5px 16px rgba(37,211,102,.42)}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:80px 20px;grid-column:1/-1;color:var(--ink3)}
+.empty-icon{font-size:68px;display:block;margin-bottom:18px}
+.empty-title{font-family:'Fraunces',serif;font-size:26px;color:var(--ink2);margin-bottom:8px}
+.empty-sub{font-size:15px;font-weight:300;margin-bottom:28px}
+.empty-btn{background:var(--rose-dark);color:#fff;border:none;padding:12px 28px;border-radius:var(--radius-full);font-size:14px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:var(--t)}
+.empty-btn:hover{background:var(--rose-deep)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* TOUCH HINT */
+.touch-hint{display:none;text-align:center;font-size:12px;color:var(--ink3);margin-bottom:16px;gap:6px;align-items:center;justify-content:center}
+@media(hover:none){.touch-hint{display:flex}}
+
+/* WA FAB */
+.wa-fab{position:fixed;bottom:28px;right:28px;z-index:4000;display:flex;align-items:center;background:#25D366;color:#fff;border:none;border-radius:var(--radius-full);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;box-shadow:0 6px 28px rgba(37,211,102,.45);cursor:pointer;overflow:hidden;transition:box-shadow .3s,transform .3s;text-decoration:none}
+.wa-fab:hover{box-shadow:0 10px 36px rgba(37,211,102,.6);transform:translateY(-3px)}
+.wa-fab-icon{width:58px;height:58px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;position:relative}
+.wa-fab-label{max-width:0;overflow:hidden;white-space:nowrap;padding:0;transition:max-width .4s cubic-bezier(.25,.8,.25,1),padding .4s}
+.wa-fab:hover .wa-fab-label{max-width:180px;padding:0 18px 0 0}
+.wa-fab-pulse{position:absolute;top:6px;right:6px;width:12px;height:12px;border-radius:50%;background:#fff;animation:waPulse 2.2s ease-in-out infinite}
+@keyframes waPulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.7);opacity:0}}
+
+/* FOOTER */
+footer{background:#1E1018;color:rgba(255,255,255,.6);padding:52px 48px 30px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;text-decoration:none}
+.footer-logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--rose-dark),var(--lav-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px}
+.footer-logo-text{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:rgba(255,255,255,.88);line-height:1}
+.footer-logo-text span{display:block;font-size:10px;font-weight:400;font-family:'Plus Jakarta Sans',sans-serif;color:rgba(255,255,255,.35);letter-spacing:1.5px;text-transform:uppercase}
+.footer-desc{font-size:13.5px;line-height:1.7;color:rgba(255,255,255,.42);font-weight:300;max-width:260px;margin-bottom:20px}
+.footer-wa-link{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 20px;border-radius:var(--radius-full);font-size:13px;font-weight:700;text-decoration:none;transition:var(--t);box-shadow:0 4px 14px rgba(37,211,102,.28)}
+.footer-wa-link:hover{background:#1ebe5d;transform:translateY(-2px)}
+.footer-col-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:16px;letter-spacing:.3px;text-transform:uppercase}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-links a{color:rgba(255,255,255,.42);text-decoration:none;font-size:13.5px;font-weight:300;transition:var(--t)}
+.footer-links a:hover{color:var(--rose-mid);padding-left:4px}
+.footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.07);padding-top:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.25)}
+.footer-payments{display:flex;gap:7px;align-items:center}
+.pay-badge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:3px 9px;font-size:10.5px;font-weight:600;color:rgba(255,255,255,.4)}
+
+/* ===================================================
+   MOBILE FIRST — Revisión completa para navegador móvil
+   =================================================== */
+
+/* En mobile el cursor personalizado no aplica */
+@media(hover:none),(pointer:coarse){
+  body{cursor:auto}
+  .cursor,.cursor-follower{display:none}
+  /* Todos los botones/links usan cursor normal */
+  a,button{cursor:pointer}
+}
+
+/* Tablet y mobile general (≤900px) */
+@media(max-width:900px){
+  /* Nav */
+  nav{padding:0 16px}
+  .nav-inner{height:58px;gap:12px}
+  .logo-icon{width:36px;height:36px;font-size:17px;border-radius:10px}
+  .logo-text{font-size:18px}
+  .logo-text span{font-size:9px}
+  .nav-wa-btn{padding:8px 14px;font-size:13px;gap:6px}
+  .nav-wa-btn span{font-size:15px!important}
+
+  /* Topbar */
+  .topbar{font-size:11px;padding:7px 12px}
+
+  /* Hero */
+  .hero-compact{padding:32px 16px 28px}
+  .hero-inner{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .hero-pill{font-size:11px;padding:6px 14px;margin-bottom:14px}
+  .hero-title{font-size:clamp(28px,8vw,40px);margin-bottom:12px}
+  .hero-desc{font-size:14px;margin-bottom:20px;max-width:100%}
+  .hero-cta{gap:10px}
+  .btn-hero-primary,.btn-hero-wa{
+    padding:13px 22px;font-size:14px;
+    width:100%;justify-content:center;
+  }
+
+  /* Cards flotantes — en mobile se muestran en fila horizontal scrolleable */
+  .hero-emojis{
+    flex-direction:row;
+    overflow-x:auto;
+    overflow-y:visible;
+    gap:12px;
+    padding:20px 16px;
+    /* Ocultar scrollbar */
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    border-radius:var(--radius-lg);
+    /* mantiene el fondo animado pero más compacto */
+    background-size:300% 300%;
+  }
+  .hero-emojis::-webkit-scrollbar{display:none}
+  .he-item{
+    min-width:200px;
+    flex-shrink:0;
+    animation:none; /* desactivar float en mobile para evitar jank */
+    padding:12px 14px 12px 18px;
+  }
+  .he-img-wrap{width:46px;height:46px}
+  .he-name{font-size:12px}
+  .he-sub{font-size:10px}
+  .he-price{font-size:14px}
+
+  /* Blobs — reducir en mobile para no saturar */
+  .hero-blob2{width:200px;height:200px;bottom:-40px;left:-40px}
+  .hero-blob3{width:120px;height:120px}
+  .hero-compact::after{width:280px;height:280px;top:-60px;right:-60px}
+
+  /* Barra de búsqueda */
+  .search-section{
+    padding:14px 16px;
+    top:58px;
+    position:sticky;
+  }
+  .search-inner{gap:12px}
+  .search-bar-wrap{flex-wrap:wrap;gap:8px}
+  .search-box{max-width:100%;padding:11px 16px}
+  .search-box input{font-size:16px} /* evita zoom en iOS */
+  .result-pill{font-size:12px;padding:6px 12px}
+
+  /* Filtros chips — scroll horizontal */
+  .filter-chips{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    padding-bottom:4px;
+    gap:6px;
+  }
+  .filter-chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex-shrink:0;
+    padding:7px 14px;
+    font-size:12.5px;
+    /* Área de toque mínima 44px de alto */
+    min-height:36px;
+    display:inline-flex;align-items:center;
+  }
+  .sort-select{
+    flex-shrink:0;
+    margin-left:0;
+    font-size:12.5px;
+    min-height:36px;
+  }
+
+  /* Catálogo */
+  .catalogue{padding:24px 16px 100px}
+
+  /* Grid de productos — 2 columnas en mobile */
+  .products-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:40px;
+  }
+
+  /* Cards de producto */
+  .pc-img{height:150px}
+  .pc-body{padding:10px 12px 12px}
+  .pc-cat{font-size:9px;margin-bottom:3px}
+  .pc-name{font-size:13.5px;margin-bottom:8px;
+    /* Limitar a 2 líneas en mobile */
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .pc-price{font-size:16px}
+  .pc-old{font-size:11px}
+  .pc-foot{gap:6px}
+
+  /* Botón pedir — más grande en mobile */
+  .btn-wa-card{
+    padding:9px 12px;
+    font-size:12px;
+    min-height:36px;
+  }
+
+  /* En mobile siempre mostrar el overlay visible (no hover) */
+  /* El overlay se activa con .touched ya gestionado por JS */
+  .pc-overlay{padding:18px 12px 12px}
+  .pc-overlay-desc{font-size:12px}
+  .btn-wa-overlay{padding:10px;font-size:13px}
+
+  /* Chips de variantes */
+  .pc-variants{gap:5px;margin-bottom:8px}
+  .vr-chip{font-size:11px;padding:5px 10px;min-height:30px}
+
+  /* Headings de categoría */
+  .cat-section-head{margin-bottom:16px}
+  .cat-section-title{font-size:20px}
+  .cat-section-count{font-size:12px}
+
+  /* FAB WhatsApp — más fácil de tocar */
+  .wa-fab{bottom:16px;right:16px}
+  .wa-fab-icon{width:52px;height:52px;font-size:24px}
+  /* En mobile mostrar siempre el label */
+  .wa-fab-label{
+    max-width:160px!important;
+    padding:0 16px 0 0!important;
+    font-size:13px;
+  }
+
+  /* Footer */
+  footer{padding:36px 16px 24px}
+  .footer-inner{grid-template-columns:1fr;gap:24px;margin-bottom:28px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+  .footer-payments{flex-wrap:wrap;gap:5px}
+}
+
+/* Mobile pequeño (≤480px) */
+@media(max-width:480px){
+  .hero-title{font-size:clamp(24px,9vw,34px)}
+  .logo-text{font-size:16px}
+
+  /* 2 columnas ajustadas */
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .pc-img{height:130px}
+
+  /* Ocultar texto en botón pedir, dejar solo ícono */
+  .btn-wa-card .btn-wa-text{display:none}
+  .btn-wa-card{padding:9px 11px}
+
+  /* Touch hint visible */
+  .touch-hint{display:flex;margin-bottom:12px;font-size:11.5px}
+
+  /* Chips de filtro — scroll horizontal más compacto */
+  .chip{padding:6px 11px;font-size:12px}
+}
+
+/* ===== VARIANTES DE PRODUCTO ===== */
+
+/* Contenedor de chips — debajo del nombre, antes del precio */
+.pc-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+/* Chip individual */
+.vr-chip {
+  border: 1.5px solid rgba(201,84,122,.20);
+  background: transparent;
+  color: var(--ink2);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--t);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: .2px;
+  position: relative;
+}
+.vr-chip:hover {
+  border-color: var(--rose-dark);
+  color: var(--rose-dark);
+  background: rgba(201,84,122,.06);
+}
+/* Estado activo — usa el color de acento del producto */
+.vr-chip.active {
+  background: var(--rose-dark);
+  color: #fff;
+  border-color: var(--rose-dark);
+  box-shadow: 0 3px 10px rgba(201,84,122,.28);
+  transform: translateY(-1px);
+}
+/* Dot de color opcional (para variantes de color) */
+.vr-chip .vr-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.6);
+  margin-right: 5px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Animación de cambio de emoji al seleccionar variante */
+@keyframes emojiSwap {
+  0%   { transform: scale(1);    opacity: 1; }
+  40%  { transform: scale(.6);   opacity: 0; }
+  60%  { transform: scale(.6);   opacity: 0; }
+  100% { transform: scale(1.12); opacity: 1; }
+}
+.pc-emoji.swapping {
+  animation: emojiSwap .42s cubic-bezier(.25,.8,.25,1) both;
+}
+
+/* En mobile, dar más espacio a los chips */
+@media(max-width:480px) {
+  .vr-chip { font-size: 11px; padding: 5px 10px; }
+}
+
+/* Imagen de producto */
+.pc-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.25,0.8,0.25,1);
+}
+.product-card:hover .pc-product-img {
+  transform: scale(1.06);
+}
+@keyframes imgSwap {
+  0%   { opacity: 1; transform: scale(1); }
+  40%  { opacity: 0; transform: scale(.94); }
+  60%  { opacity: 0; transform: scale(.94); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.pc-product-img.swapping {
+  animation: imgSwap .38s cubic-bezier(.25,.8,.25,1) both;
+}
+
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-item">🎊 Cotillón Bambinos — Magia para cada fiesta</span>
+    <span class="topbar-item">💬 Pedidos por WhatsApp al instante</span>
+    <span class="topbar-item">🎁 Armamos paquetes personalizados</span>
+    <span class="topbar-item">⭐ +8.000 fiestas felices</span>
+    <span class="topbar-item">🎊 Cotillón Bambinos — Magia para cada fiesta</span>
+    <span class="topbar-item">💬 Pedidos por WhatsApp al instante</span>
+    <span class="topbar-item">🎁 Armamos paquetes personalizados</span>
+    <span class="topbar-item">⭐ +8.000 fiestas felices</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🎈</div>
+      <div class="logo-text">Bambinos<span>Cotillón & Repostería</span></div>
+    </a>
+    <a class="nav-wa-btn" id="nav-wa" href="#" target="_blank" rel="noopener">
+      <span style="font-size:17px">💬</span> Pedir por WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- HERO COMPACTO -->
+<div class="hero-compact">
+  <!-- Blobs decorativos animados -->
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill"><span class="dot"></span>500+ productos disponibles</div>
+      <h1 class="hero-title">Tu fiesta merece lo más<br><em>dulce y especial</em></h1>
+      <p class="hero-desc">Repostería artesanal, cotillón temático, juguetes, máscaras y todo lo de kiosco. Buscá lo que necesitás y pedilo directo por WhatsApp.</p>
+      <div class="hero-cta">
+        <button class="btn-hero-primary" onclick="document.getElementById('search-input').focus();document.getElementById('search-input').scrollIntoView({behavior:'smooth',block:'center'})">
+          🔍 Buscar productos
+        </button>
+        <a class="btn-hero-wa" id="hero-wa" href="#" target="_blank" rel="noopener">
+          <span style="font-size:18px">💬</span> Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Cards flotantes con imagen real -->
+    <div class="hero-emojis">
+
+      <div class="he-item hi-rose">
+        <div class="he-img-wrap">
+          <img class="he-img" src="img/crema-ledevit-vainilla-500gr.png" alt="Para hacer tortas">
+        </div>
+        <div class="he-info">
+          <div class="he-name">Para Hacer Tortas</div>
+          <div class="he-sub">Cremas, bizcochuelos y más</div>
+          <div class="he-price">Repostería</div>
+        </div>
+        <span class="he-arrow">→</span>
+      </div>
+
+      <div class="he-item hi-lav">
+        <div class="he-img-wrap">
+          <img class="he-img" src="img/Pasta-ballina-rosa-500gr.png" alt="Máscaras y Juguetes">
+        </div>
+        <div class="he-info">
+          <div class="he-name">Decoración y Arte</div>
+          <div class="he-sub">Pastas, colores y brillos</div>
+          <div class="he-price">Cotillón</div>
+        </div>
+        <span class="he-arrow">→</span>
+      </div>
+
+      <div class="he-item hi-mint">
+        <div class="he-img-wrap">
+          <img class="he-img" src="img/micky-frutilla-mapsa-450gr.png" alt="Golosinas y Fiestas">
+        </div>
+        <div class="he-info">
+          <div class="he-name">Golosinas y Fiestas</div>
+          <div class="he-sub">Mickey, rellenos y dulces</div>
+          <div class="he-price">Dulces</div>
+        </div>
+        <span class="he-arrow">→</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH & FILTERS (sticky) -->
+<div class="search-section">
+  <div class="search-inner">
+    <div class="search-bar-wrap">
+      <div class="search-box">
+        <img src="img/lupa.png" alt="Buscar" class="search-icon" style="width:20px;height:20px;object-fit:contain;">
+        <input id="search-input" type="text" placeholder="Buscar por nombre, categoría o descripción…" autocomplete="off">
+        <button class="search-clear" id="search-clear" onclick="clearSearch()" title="Limpiar">✕</button>
+      </div>
+      <div class="result-pill" id="result-pill">Todos los productos</div>
+    </div>
+    <div class="filter-chips">
+      <button class="chip active" data-cat="todos" onclick="setFilter('todos',this)">🎉 Todos</button>
+      <button class="chip" data-cat="reposteria" onclick="setFilter('reposteria',this)">🎂 Repostería</button>
+      <button class="chip" data-cat="dulces" onclick="setFilter('dulces',this)">🍬 Dulces</button>
+      <button class="chip" data-cat="mascaras" onclick="setFilter('mascaras',this)">🎭 Máscaras</button>
+      <button class="chip" data-cat="juguetes" onclick="setFilter('juguetes',this)">🧸 Juguetes</button>
+      <button class="chip" data-cat="cotillon" onclick="setFilter('cotillon',this)">🎊 Cotillón</button>
+      <button class="chip" data-cat="combos" onclick="setFilter('combos',this)">🎁 Combos</button>
+      <div class="chip-div"></div>
+      <select class="sort-select" id="sort-select" onchange="render()">
+        <option value="default">Ordenar</option>
+        <option value="price-asc">Menor precio</option>
+        <option value="price-desc">Mayor precio</option>
+        <option value="rating">Mejor valorados</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- CATALOGUE -->
+<div class="catalogue">
+  <div class="catalogue-bg"></div>
+  <div class="touch-hint">👆 Tocá un producto para ver detalles y pedir</div>
+  <div id="catalogue-output"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#" class="footer-logo">
+        <div class="footer-logo-icon">🎈</div>
+        <div class="footer-logo-text">Bambinos<span>Cotillón & Repostería</span></div>
+      </a>
+      <p class="footer-desc">Repostería artesanal, cotillón temático, juguetes y todo lo que tu fiesta necesita. Con amor.</p>
+      <a class="footer-wa-link" id="footer-wa" href="#" target="_blank" rel="noopener">💬 Escribinos por WhatsApp</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Productos</div>
+      <ul class="footer-links">
+        <li><a href="#">Repostería artesanal</a></li>
+        <li><a href="#">Dulces y kiosco</a></li>
+        <li><a href="#">Máscaras y disfraces</a></li>
+        <li><a href="#">Juguetes y sorpresas</a></li>
+        <li><a href="#">Cotillón festivo</a></li>
+        <li><a href="#">Combos temáticos</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Info</div>
+      <ul class="footer-links">
+        <li><a href="#">Cómo comprar</a></li>
+        <li><a href="#">Envíos y entregas</a></li>
+        <li><a href="#">Preguntas frecuentes</a></li>
+        <li><a href="#">Sobre nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Cotillón Bambinos. Hecho con 💕 en Argentina.</div>
+    <div class="footer-payments">
+      <span class="pay-badge">VISA</span>
+      <span class="pay-badge">MC</span>
+      <span class="pay-badge">AMEX</span>
+      <span class="pay-badge">MP</span>
+      <span class="pay-badge">DÉBITO</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FAB -->
+<a class="wa-fab" id="wa-fab" href="#" target="_blank" rel="noopener">
+  <div class="wa-fab-icon">💬<span class="wa-fab-pulse"></span></div>
+  <span class="wa-fab-label">Escribinos ahora</span>
+</a>
+
+<script>
+// ======================================================
+// CONFIGURACIÓN — cambiá solo este número
+// Formato: 549 + código de área + número (sin espacios)
+// Ejemplo Argentina Buenos Aires: 5491155667788
+// ======================================================
+const WA_NUMBER = '5491158404213';
+
+// ===== WhatsApp helpers =====
+const WA_BASE = 'https://wa.me/' + WA_NUMBER + '?text=';
+function waProduct(name, price){
+  const txt = `Hola Bambinos! 🎉\nMe gustaría pedir:\n*${name}*\nPrecio: ${price}\n\n¿Está disponible?`;
+  return WA_BASE + encodeURIComponent(txt);
+}
+function waGeneral(){
+  return WA_BASE + encodeURIComponent('¡Hola Bambinos! 🎈 Quiero consultar sobre sus productos.');
+}
+function initLinks(){
+  const g = waGeneral();
+  ['nav-wa','hero-wa','footer-wa','wa-fab'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.href = g;
+  });
+}
+
+// ===== PRODUCTS DATA =====
+// Para agregar productos: copiar un objeto y modificar los valores.
+// Campo 'cat': reposteria | dulces | mascaras | juguetes | cotillon | combos
+// Campo 'tag': hot | new | sale | ltd | '' (vacío = sin etiqueta)
+const PRODUCTS = [
+  {id:1,  name:'Crema Ledevit Chantilly 500g', cat:'reposteria', emoji:'🍦', img: 'img/crema-ledevit-chantilly-500gr.png', bg:'#FFF0F5', price:5800, tag:'hot', desc:'ricas, prácticas y listas para usar. Ideales para rellenar, cubrir y decorar tortas, postres y facturas con excelente sabor y textura.', stars:5, reviews:142,
+    variants: [
+  { label: 'Chantilly', img: 'img/crema-ledevit-chantilly-500gr.png', price: 5800 },
+  { label: 'Frutilla',  img: 'img/crema-ledevit-frutilla-500gr.png',  price: 5800 },
+  { label: 'Vainilla',  img: 'img/crema-ledevit-vainilla-500gr.png',  price: 5800 },
+  { label: 'Chocolate', img: 'img/crema-ledevit-chocolate-500gr.png', price: 6600 },
+]
+  },
+  {id:2, name: 'Dulce de Leche Repostero El Bosque x 400 gr', cat: 'reposteria', emoji: '🧁', img: 'img/dulce-de-leche-repostero-ElBosque-400gr-potTransparente.png', bg: '#F5F0FF', price: 2300, tag: 'new', desc: 'De textura firme y sabor tradicional. Ideal para rellenos y decoraciones en tortas, alfajores y postres.', stars: 5, reviews: 98,
+  // ─── VARIANTES ──────────────────────────────────────────────────
+  // Cada variante puede tener: label (obligatorio), emoji, bg, desc, price, color
+  // Si omitís un campo, el sistema usa el valor base del producto.
+},
+  {id:3,  name:'Dulce de Leche Repostero Vacalin x 400 gr', cat:'reposteria', emoji:'🍪', img: 'img/dulce-de-leche-repostero-vacalin-400gr.png', bg:'#FFFBF0', price:3600, tag:'new', desc:'De textura firme y sabor intenso. Ideal para rellenar y decorar tortas, alfajores y postres.', stars:4, reviews:76,
+    variants: [
+      { label: 'Pote Original', img: 'img/dulce-de-leche-repostero-vacalin-400gr.png', price: 3600 },
+      { label: 'Transparente', img: 'img/dulce-de-leche-repostero-vacalin-400gr-potTransparente.png', price: 3500 },
+    ]
+  },
+  {id:4,  name:'Relleno Bon O bon 290 gr',  cat:'reposteria', emoji:'🍫', img: 'img/relleno-BonOBon-mani-290gr.png', bg:'#FFF3E8', price:6300, tag:'',     desc:'Cremoso y con intenso sabor a maní. Ideal para rellenos y decoraciones en tortas, postres y facturas.', stars:5, reviews:61},
+  {id:5,  name:'Gel De Brillo Ledevit Sabor Neutro 310 gr', cat:'reposteria', emoji:'🦄', img: 'img/GelDeBrillo-ledevit-destello-310gr.png', bg:'#F0F5FF', price:4800, tag:'hot',  desc:'Ideal para dar un acabado brillante y profesional a tus tortas y postres. Su textura ligera facilita la aplicación y resalta frutas y decoraciones sin alterar el sabor. Perfecto para lograr presentaciones más atractivas y prolijas.', stars:5, reviews:203},
+  {id:6,  name:'Micky Mani Mapsa 450 gr', cat:'reposteria', emoji:'🎊', img: 'img/micky-mani-mapsa-450gr.png', bg:'#F5F0FF', price:7800, oldPrice:9800, tag:'sale', desc:'Crema de maní, frutilla, menta y pistacho suave y sabrosa, ideal para rellenos, coberturas o disfrutar sola. Su textura cremosa y sabor intenso la hacen perfecta para postres, tortas y preparaciones dulces.', stars:5, reviews:187,
+    variants: [
+      { label: 'Mani', img: 'img/micky-mani-mapsa-450gr.png', price: 6000 },
+      { label: 'Frutilla', img: 'img/micky-frutilla-mapsa-450gr.png', price: 6000 },
+      { label: 'Menta', img: 'img/micky-menta-mapsa-450gr.png', price: 6000 },
+      { label: 'Pistacho', img: 'img/micky_Pistacho-Mapsa-450gr.png', price: 6000 },
+    ]
+  },
+  {id:7,  name:'Pasta Ballina Para Cubrir Tortas', cat:'reposteria',   emoji:'🎈', img: 'img/Pasta-ballina-blanco-500gr.png', bg:'#F0F5FF', price:2800, tag:'', desc:'Fáciles de estirar y modelar, ideales para lograr coberturas lisas, prolijas y decoraciones creativas en tortas y pastelería.', stars:4, reviews:215,
+    variants: [
+      { label: 'Blanco', img: 'img/Pasta-ballina-blanco-500gr.png', price: 6000 },
+      { label: 'Negro', img: 'img/Pasta-ballina-negro-500gr.png', price: 6000 },
+      { label: 'Rojo', img: 'img/Pasta-ballina-rojo-500gr.png', price: 6000 },
+      { label: 'Rosa', img: 'img/Pasta-ballina-rosa-500gr.png', price: 6000 },
+      { label: 'Verde', img: 'img/Pasta-ballina-verde-500gr.png', price: 6000 },
+      { label: 'Amarillo', img: 'img/Pasta-ballina-amarillo-500gr.png', price: 6000 },
+    ]
+  },
+  {id:8,  name:'Pasta De Goma Ballina 500 gr', cat:'reposteria', emoji:'🕯️', img: 'img/PastaDeGoma-ballina-500gr.png', bg:'#FFF8E0', price:5000, tag:'new', desc:'Ideal para modelado y decoraciones detalladas. Flexible, fácil de trabajar y perfecta para flores, figuras y acabados profesionales en tortas.', stars:4, reviews:312},
+  {id:9,  name:'Bizcochuelo Ravana Sabor Vainilla 540 gr', cat:'reposteria', emoji:'🦕', img: 'img/Bizcochuelo-de-vainilla-Ravana.png', bg:'#F0FFF5', price:2800, tag:'new', desc:'Esponjoso y de sabor suave. Ideal como base para tortas, fácil de rellenar y perfecto para todo tipo de preparaciones dulces.', stars:5, reviews:76},
+  {id:10, name:'Bizcochuelo Emeth Sabor Vainilla 450 gr', cat:'reposteria', emoji:'🎭', img: 'img/bizcochuelo-emeth-vainilla-450gr.png', bg:'#FFF0F5', price:2000, tag:'', desc:'Suave y esponjoso. Ideal como base para tortas, fácil de rellenar y perfecto para preparaciones dulces caseras.', stars:4, reviews:55},
+  {id:11, name:'Brownie Ledevit De 470 gr', cat:'reposteria', emoji:'✨', img: 'img/brownie-ledevit-470g.png', bg:'#F5F0FF', price:4600, tag:'', desc:'Húmedo y de intenso sabor a chocolate. Ideal para preparar brownies caseros con textura suave por dentro y un delicioso acabado en cada porción.', stars:4, reviews:88},
+  {id:12, name:'Kit Máscaras Superhéroes',    cat:'mascaras',   emoji:'🦸', bg:'#F0F5FF', price:2400,                 tag:'hot',  desc:'Set x4: Spider-Man, Batman, Wonder Woman y Hulk. EVA resistente.',                  stars:4, reviews:110},
+  {id:13, name:'Peluca Arco Iris',            cat:'mascaras',   emoji:'🌈', bg:'#FFF0F5', price:1900,                 tag:'new',  desc:'Multicolor, lavable. Talle único adulto y niño.',                                   stars:5, reviews:67},
+  {id:14, name:'Disfraz Bruja Completo',      cat:'mascaras',   emoji:'🧙', bg:'#F3F0FF', price:4100,                 tag:'',     desc:'Vestido + sombrero + escoba. Talles S, M y L.',                                    stars:4, reviews:48},
+  {id:15, name:'Bolsa Sorpresa Kids',         cat:'juguetes',   emoji:'🎁', bg:'#FFFBF0', price:1800,                 tag:'new',  desc:'5 mini juguetes + golosinas. Ideal para piñata o regalito de cumpleaños.',          stars:5, reviews:320},
+  {id:16, name:'Peluche Oso Corazón 25cm',   cat:'juguetes',   emoji:'🧸', bg:'#FFF0F5', price:3600,                 tag:'',     desc:'Supersuave, 25 cm. Ideal para regalo, sorpresa o centro de mesa.',                  stars:5, reviews:92},
+  {id:17, name:'Set Plastilina 12 colores',   cat:'juguetes',   emoji:'🎨', bg:'#FFF5E0', price:2100,                 tag:'',     desc:'12 colores vivos. No tóxica. Con moldes y herramientas incluidas.',                 stars:4, reviews:143},
+  {id:18, name:'Surtido Golosinas 500g',      cat:'dulces',     emoji:'🍬', bg:'#F0FFF5', price:2400,                 tag:'hot',  desc:'Mix de caramelos, chicles, chupetines y chocolatines. Ideal candy bar.',            stars:4, reviews:441},
+  {id:19, name:'Chupetines Artesanales x12',  cat:'dulces',     emoji:'🍭', bg:'#FFFBF0', price:3000,                 tag:'new',  desc:'Personalizados con nombre. Sabores frutales. Sin TACC.',                            stars:5, reviews:178},
+  {id:20, name:'Chocolates Artesanales x24',  cat:'dulces',     emoji:'🍫', bg:'#FFF3E0', price:5200,                 tag:'hot',  desc:'Rellenos de maracuyá, dulce de leche o fresa. Caja decorada.',                     stars:5, reviews:224},
+  {id:21, name:'Garrapiñadas 200g',           cat:'dulces',     emoji:'🥜', bg:'#FFF8E8', price:1600,                 tag:'',     desc:'Maní bañado en caramelo artesanal. Bolsita sellada lista para candy bar.',          stars:4, reviews:99},
+  {id:22, name:'Combo Baby Shower',           cat:'combos',     emoji:'👶', bg:'#F0FFF9', price:14500, oldPrice:18000,tag:'sale', desc:'Torta + cupcakes + globos + decoración completa. Para 20 personas.',              stars:5, reviews:134},
+  {id:23, name:'Combo Cumple Princesa',       cat:'combos',     emoji:'👑', bg:'#FFF0F5', price:22000,                tag:'ltd',  desc:'Torta + 12 cupcakes + cotillón x20 + arco de globos decorado.',                   stars:5, reviews:89},
+  {id:24, name:'Combo Dino Party x10',        cat:'combos',     emoji:'🦖', bg:'#F0FFF5', price:8900,  oldPrice:11000,tag:'sale', desc:'Piñata dinosaurio + kit cotillón x10 + bolsas sorpresa x10.',                     stars:4, reviews:57},
+];
+
+// ===== STATE =====
+let activeCat = 'todos';
+let searchQuery = '';
+
+function fmt(n){ return '$' + n.toLocaleString('es-AR') }
+
+// ===== FILTER + SORT =====
+function getFiltered(){
+  const q = searchQuery.toLowerCase().trim();
+  const sort = document.getElementById('sort-select').value;
+  let list = PRODUCTS.filter(p => {
+    const catOk = activeCat === 'todos' || p.cat === activeCat;
+    const searchOk = !q || p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+    return catOk && searchOk;
+  });
+  if(sort === 'price-asc')  list.sort((a,b) => a.price - b.price);
+  if(sort === 'price-desc') list.sort((a,b) => b.price - a.price);
+  if(sort === 'rating')     list.sort((a,b) => b.stars - a.stars || b.reviews - a.reviews);
+  return list;
+}
+
+// ===== RENDER =====
+// Categories order for grouped display
+const CAT_META = {
+  reposteria: {label:'Repostería',    emoji:'🎂'},
+  dulces:     {label:'Dulces & Kiosco',emoji:'🍬'},
+  mascaras:   {label:'Máscaras',       emoji:'🎭'},
+  juguetes:   {label:'Juguetes',       emoji:'🧸'},
+  cotillon:   {label:'Cotillón',       emoji:'🎊'},
+  combos:     {label:'Combos',         emoji:'🎁'},
+};
+const TAG_MAP  = {hot:'🔥 Popular', new:'✨ Nuevo', sale:'💜 Oferta', ltd:'⏳ Últimos'};
+const TAG_CLS  = {hot:'t-hot', new:'t-new', sale:'t-sale', ltd:'t-ltd'};
+
+function render(){
+  const filtered = getFiltered();
+  const out = document.getElementById('catalogue-output');
+
+  // Update result pill
+  const pill = document.getElementById('result-pill');
+  if(searchQuery){
+    pill.textContent = filtered.length + ' resultado' + (filtered.length !== 1 ? 's' : '') + ' para "' + searchQuery + '"';
+  } else if(activeCat !== 'todos'){
+    pill.textContent = filtered.length + ' productos — ' + CAT_META[activeCat].label;
+  } else {
+    pill.textContent = filtered.length + ' productos';
+  }
+
+  if(filtered.length === 0){
+    out.innerHTML = `<div class="products-grid">
+      <div class="empty-state">
+        <span class="empty-icon">🔍</span>
+        <div class="empty-title">Sin resultados</div>
+        <div class="empty-sub">Probá con otro nombre o categoría.</div>
+        <button class="empty-btn" onclick="clearAll()">Ver todos los productos</button>
+      </div>
+    </div>`;
+    return;
+  }
+
+  // Si hay filtro activo (categoría específica o búsqueda), mostrar grilla plana
+  if(activeCat !== 'todos' || searchQuery){
+    out.innerHTML = `<div class="products-grid" id="flat-grid"></div>`;
+    const grid = document.getElementById('flat-grid');
+    filtered.forEach((p, i) => {
+      grid.appendChild(makeCard(p, i));
+    });
+    observeReveal();
+    return;
+  }
+
+  // Sin filtro: agrupar por categoría
+  const byCat = {};
+  filtered.forEach(p => {
+    if(!byCat[p.cat]) byCat[p.cat] = [];
+    byCat[p.cat].push(p);
+  });
+
+  let html = '';
+  Object.keys(CAT_META).forEach(cat => {
+    const items = byCat[cat];
+    if(!items || items.length === 0) return;
+    const meta = CAT_META[cat];
+    html += `
+      <div class="cat-section-head reveal">
+        <div class="cat-section-label">
+          <span class="cat-section-emoji">${meta.emoji}</span>
+          <span class="cat-section-title">${meta.label}</span>
+          <span class="cat-section-count">${items.length} producto${items.length!==1?'s':''}</span>
+        </div>
+        <div class="cat-section-line"></div>
+      </div>
+      <div class="products-grid" id="grid-${cat}"></div>`;
+  });
+  out.innerHTML = html;
+
+  Object.keys(CAT_META).forEach(cat => {
+    const items = byCat[cat];
+    if(!items) return;
+    const grid = document.getElementById('grid-' + cat);
+    if(!grid) return;
+    items.forEach((p, i) => grid.appendChild(makeCard(p, i)));
+  });
+
+  observeReveal();
+}
+
+// ===== BUILD CARD (con soporte de variantes) =====
+function makeCard(p, i) {
+
+  // --- Estado activo de variante para esta card ---
+  // Si el producto tiene variantes, arrancamos con la primera seleccionada.
+  let activeVariant = p.variants ? p.variants[0] : null;
+
+  // --- Helpers para leer el estado actual ---
+  function currentEmoji()  { return activeVariant ? (activeVariant.emoji || p.emoji) : p.emoji; }
+  function currentImg()    { return activeVariant ? (activeVariant.img   || p.img)   : p.img;   }
+  function currentBg()     { return activeVariant ? (activeVariant.bg    || p.bg)    : p.bg;    }
+  function currentDesc()   { return activeVariant ? (activeVariant.desc  || p.desc)  : p.desc;  }
+  function currentPrice()  { return activeVariant ? (activeVariant.price || p.price) : p.price; }
+  // ¿Este producto usa imágenes?
+  const usesImages = !!(p.img || (p.variants && p.variants.some(v => v.img)));
+
+  // --- Link WA dinámico ---
+  function buildWaLink() {
+    const name  = activeVariant ? `${p.name} — ${activeVariant.label}` : p.name;
+    const price = fmt(currentPrice());
+    const txt   = `Hola Bambinos! 🎉\nMe gustaría pedir:\n*${name}*\nPrecio: ${price}\n\n¿Está disponible?`;
+    return WA_BASE + encodeURIComponent(txt);
+  }
+
+  // --- Tags ---
+  const tagHTML = p.tag ? `<span class="pc-tag ${TAG_CLS[p.tag]}">${TAG_MAP[p.tag]}</span>` : '';
+  const oldHTML = p.oldPrice ? `<span class="pc-old">${fmt(p.oldPrice)}</span>` : '';
+
+  // --- Chips HTML (solo si hay variantes) ---
+  function buildChipsHTML() {
+    if (!p.variants) return '';
+    return `<div class="pc-variants">
+      ${p.variants.map((v, idx) => {
+        const dotHTML = v.color ? `<span class="vr-dot" style="background:${v.color};border-color:${v.color}"></span>` : '';
+        return `<button
+          class="vr-chip${idx === 0 ? ' active' : ''}"
+          data-idx="${idx}"
+          onclick="selectVariant(this)"
+        >${dotHTML}${v.label}</button>`;
+      }).join('')}
+    </div>`;
+  }
+
+  // --- Construir el div ---
+  const div = document.createElement('div');
+  div.className = 'product-card reveal';
+  div.style.transitionDelay = (i * 0.045) + 's';
+
+  // Guardar referencia al array de variantes en el DOM
+  if (p.variants) div._variants = p.variants;
+
+  div.innerHTML = `
+    <div class="pc-img" style="background:${usesImages ? 'transparent' : currentBg()}">
+  ${usesImages
+    ? `<img src="${currentImg()}" alt="${p.name}" class="pc-product-img">`
+    : `<span class="pc-emoji">${currentEmoji()}</span>`
+  }
+      <div class="pc-tags">${tagHTML}</div>
+      <button class="pc-wish" onclick="this.classList.toggle('liked')">♡</button>
+      <div class="pc-overlay">
+        <p class="pc-overlay-desc">${currentDesc()}</p>
+        <a class="btn-wa-overlay" href="${buildWaLink()}" target="_blank" rel="noopener">
+          <span style="font-size:16px">💬</span> Pedir por WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="pc-body">
+      <div class="pc-cat">${p.cat}</div>
+      <div class="pc-name">${p.name}</div>
+      ${buildChipsHTML()}
+      <div class="pc-foot">
+        <div class="pc-prices">${oldHTML}<span class="pc-price">${fmt(currentPrice())}</span></div>
+        <a class="btn-wa-card" href="${buildWaLink()}" target="_blank" rel="noopener">
+          <span class="wa-icon-sm" style="font-size:14px">💬</span>
+          <span class="btn-wa-text">Pedir</span>
+        </a>
+      </div>
+    </div>`;
+
+  // --- Función de selección (closure sobre div y activeVariant) ---
+  div.selectVariant = function(btn) {
+    const idx     = parseInt(btn.dataset.idx);
+    activeVariant = div._variants[idx];
+
+    // 1. Actualizar chips activos
+    div.querySelectorAll('.vr-chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+
+    // 2. Cambiar imagen O emoji + fondo según tipo de producto
+    if (usesImages) {
+      const imgEl = div.querySelector('.pc-product-img');
+      if (imgEl) {
+        imgEl.classList.remove('swapping');
+        void imgEl.offsetWidth;
+        imgEl.classList.add('swapping');
+        imgEl.addEventListener('animationend', () => {
+          imgEl.src = currentImg();
+          imgEl.classList.remove('swapping');
+        }, { once: true });
+      }
+      // fondo solo si la variante lo especifica explícitamente
+      if (activeVariant.bg) div.querySelector('.pc-img').style.background = activeVariant.bg;
+    } else {
+      const emojiEl = div.querySelector('.pc-emoji');
+      const imgEl   = div.querySelector('.pc-img');
+      if (emojiEl) {
+        emojiEl.classList.remove('swapping');
+        void emojiEl.offsetWidth;
+        emojiEl.classList.add('swapping');
+        emojiEl.addEventListener('animationend', () => {
+          emojiEl.textContent = currentEmoji();
+          emojiEl.classList.remove('swapping');
+        }, { once: true });
+      }
+      if (activeVariant.bg) imgEl.style.background = activeVariant.bg;
+    }
+
+    // 3. Actualizar descripción en overlay
+    const descEl = div.querySelector('.pc-overlay-desc');
+    if (descEl) descEl.textContent = currentDesc();
+
+    // 4. Actualizar precio
+    const priceEl = div.querySelector('.pc-price');
+    if (priceEl) priceEl.textContent = fmt(currentPrice());
+
+    // 5. Actualizar AMBOS links de WhatsApp
+    const newLink = buildWaLink();
+    div.querySelectorAll('.btn-wa-overlay, .btn-wa-card').forEach(a => a.href = newLink);
+  };
+
+  // --- Mobile touch ---
+  div.addEventListener('click', function(e) {
+    if (window.matchMedia('(hover:none)').matches) {
+      if (e.target.closest('.btn-wa-overlay') || e.target.closest('.btn-wa-card') ||
+          e.target.closest('.pc-wish')         || e.target.closest('.vr-chip')) return;
+      if (!this.classList.contains('touched')) {
+        document.querySelectorAll('.product-card.touched').forEach(c => c.classList.remove('touched'));
+        this.classList.add('touched');
+        e.preventDefault();
+      }
+    }
+  });
+
+  return div;
+}
+
+// Función global para que los chips puedan llamarla desde onclick
+function selectVariant(btn) {
+  const card = btn.closest('.product-card');
+  if (card && card.selectVariant) card.selectVariant(btn);
+}
+
+// ===== FILTER =====
+function setFilter(cat, btn){
+  activeCat = cat;
+  document.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  render();
+}
+
+// ===== SEARCH =====
+let searchTimer;
+document.getElementById('search-input').addEventListener('input', function(){
+  clearTimeout(searchTimer);
+  const val = this.value;
+  searchTimer = setTimeout(() => {
+    searchQuery = val.trim();
+    document.getElementById('search-clear').classList.toggle('visible', searchQuery.length > 0);
+    render();
+  }, 220);
+});
+
+function clearSearch(){
+  document.getElementById('search-input').value = '';
+  searchQuery = '';
+  document.getElementById('search-clear').classList.remove('visible');
+  render();
+}
+
+function clearAll(){
+  clearSearch();
+  setFilter('todos', document.querySelector('.chip[data-cat="todos"]'));
+}
+
+// Close touched on outside click
+document.addEventListener('click', e => {
+  if(!e.target.closest('.product-card'))
+    document.querySelectorAll('.product-card.touched').forEach(c => c.classList.remove('touched'));
+});
+
+// ===== SCROLL REVEAL =====
+function observeReveal(){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, {threshold: 0.08});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+}
+
+// ===== CURSOR — solo en dispositivos con mouse =====
+const cur = document.getElementById('cursor');
+const fol = document.getElementById('cursor-follower');
+const isTouch = window.matchMedia('(hover:none)').matches || ('ontouchstart' in window);
+let mx=0, my=0, fx=0, fy=0;
+if(!isTouch){
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+  });
+  (function tick(){
+    fx += (mx - fx) * 0.12; fy += (my - fy) * 0.12;
+    fol.style.left = fx + 'px'; fol.style.top = fy + 'px';
+    requestAnimationFrame(tick);
+  })();
+  document.addEventListener('mouseover', e => {
+    if(e.target.closest('a,button,[onclick]')){
+      cur.classList.add('hov'); fol.classList.add('hov');
+    } else {
+      cur.classList.remove('hov'); fol.classList.remove('hov');
+    }
+  });
+}
+
+// ===== INIT =====
+initLinks();
+render();
+</script>
+</body>
+</html>
