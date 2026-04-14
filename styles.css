@@ -645,3 +645,10 @@ footer{background:#1E1018;color:rgba(255,255,255,.6);padding:52px 48px 30px}
   100%{opacity:1;transform:scale(1)}
 }
 .pc-product-img.swapping{animation:imgSwap .38s cubic-bezier(.25,.8,.25,1) both}
+/*logo*/
+.logo-icon img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
