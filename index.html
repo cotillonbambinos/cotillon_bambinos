@@ -1,268 +1,465 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-<meta name="theme-color" content="#110f1f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>Cotillón Bambinos | Catálogo interactivo</title>
-<meta name="description" content="Catálogo visual de Cotillón Bambinos con búsqueda, filtros, carrito y pedidos directos por WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cotillón Bambinos — Todo para tu fiesta en José C. Paz. Repostería, dulces, juguetes, máscaras y combos. Pedí por WhatsApp sin vueltas.">
+  <meta name="theme-color" content="#FF6B9D">
+  <meta property="og:title" content="Cotillón Bambinos — Todo para tu fiesta">
+  <meta property="og:description" content="Repostería, dulces, juguetes, máscaras y combos. Polonia 1049, José C. Paz. Pedí por WhatsApp.">
+  <meta property="og:type" content="website">
+  <title>Cotillón Bambinos — Todo para tu fiesta</title>
+
+  <!-- Favicon inline SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>">
+
+  <!-- Preconnect hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="lib/style.css?v=20260531">
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-follower" id="cursor-follower"></div>
+<a href="#hero" class="skip-link">Saltar al contenido</a>
 
-<div class="site-orb site-orb-a"></div>
-<div class="site-orb site-orb-b"></div>
-<div class="site-grid"></div>
-
-<div class="topbar">
-  <div class="topbar-inner">
-    <span class="topbar-item">Catálogo inteligente de fiestas y repostería</span>
-    <span class="topbar-item">Pedidos por WhatsApp sin registro</span>
-    <span class="topbar-item">Variantes, filtros y carrito en tiempo real</span>
-    <span class="topbar-item">Experiencia rápida, visual y mobile-first</span>
-    <span class="topbar-item">Catálogo inteligente de fiestas y repostería</span>
-    <span class="topbar-item">Pedidos por WhatsApp sin registro</span>
-    <span class="topbar-item">Variantes, filtros y carrito en tiempo real</span>
-    <span class="topbar-item">Experiencia rápida, visual y mobile-first</span>
-  </div>
-</div>
-
-<nav>
+<!-- ═══════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════ -->
+<nav id="main-nav" role="navigation" aria-label="Navegación principal">
   <div class="nav-inner">
-    <a href="#" class="logo" aria-label="Ir al inicio">
-      <div class="logo-icon">
-        <img src="img/logo.png" alt="Logo Bambinos">
-      </div>
-      <div class="logo-text">Bambinos<span>Cotillón y repostería</span></div>
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo" aria-label="Inicio Cotillón Bambinos">
+      <span class="nav-logo-emoji">🎉</span>
+      <span class="nav-logo-text">Bambinos</span>
     </a>
 
-    <div class="nav-actions">
-      <a id="nav-wa" class="nav-wa-btn" href="#" target="_blank" rel="noopener">
-        <span class="nav-wa-icon">◉</span>
-        <span>WhatsApp directo</span>
-      </a>
-      <button id="cart-toggle" class="nav-cart-btn" type="button" aria-label="Abrir carrito" aria-expanded="false" aria-controls="cart-panel">
+    <!-- Links desktop -->
+    <ul id="nav-menu" class="nav-links" role="list">
+      <li><a href="#como-comprar">Cómo comprar</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#destacados">Destacados</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+
+    <!-- CTAs -->
+    <div class="nav-ctas">
+      <button id="cart-toggle-btn" class="nav-cart-btn" aria-label="Ver carrito">
         <span class="cart-icon">🛒</span>
-        <span id="cart-badge" class="cart-badge">0</span>
+        <span id="cart-bubble" class="cart-bubble">0</span>
       </button>
+      <a href="#" data-wa class="btn btn-wa nav-wa-btn" aria-label="Consultar por WhatsApp">
+        <span class="wa-icon">💬</span>
+        <span>Consultar</span>
+      </a>
     </div>
+
+    <!-- Burger mobile -->
+    <button id="nav-burger" class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<header class="hero-compact">
-  <div class="hero-noise"></div>
-  <div class="hero-blob2"></div>
-  <div class="hero-blob3"></div>
+<!-- ═══════════════════════════════════════════════════════
+     HERO — Directo y claro
+═══════════════════════════════════════════════════════ -->
+<section id="hero" class="hero" aria-label="Portada Cotillón Bambinos">
+  <div class="hero-content">
+    <div class="hero-kicker reveal">
+      <span class="kicker-dot"></span>
+      Repostería · Dulces · Juguetes · Máscaras · Combos
+      <span class="kicker-dot"></span>
+    </div>
+    <h1 class="hero-title reveal">
+      <span class="hero-title-line">Cotillón</span>
+      <span class="hero-title-line accent">Bambinos</span>
+      <span class="hero-title-line">José C. Paz</span>
+    </h1>
+    <p class="hero-sub reveal" data-brand-desc>
+      Hace 15 años armamos fiestas en Polonia 1049. Vení a ver, pedí por WhatsApp o retirá en el día.
+    </p>
+    <div class="hero-ctas reveal">
+      <a href="#catalogo" class="btn btn-primary btn-hero">
+        <span>🎊</span> Ver catálogo completo
+      </a>
+      <a href="#" data-wa class="btn btn-wa btn-hero">
+        <span>💬</span> Pedir por WhatsApp
+      </a>
+    </div>
 
-  <div class="hero-inner">
-    <section class="hero-copy">
-      <div class="hero-pill"><span class="dot"></span>Elegí lo que mas te gusta</div>
-      <div class="hero-kicker">CATÁLOGO COMPLETO</div>
-      <h1 class="hero-title">Tu tienda puede sentirse como una <em>experiencia de fiesta.</em>.</h1>
-      <p class="hero-desc">Llevamos la alegría a cada detalle con productos de repostería, cotillón, juguetería y papelería. Explorá nuestro catálogo y encontrá todo lo que necesitás para crear, festejar y disfrutar sin complicaciones.</p>
-      <div class="hero-cta">
-        <button class="btn-hero-primary" id="btn-search-scroll" type="button">Explorar productos</button>
-        <a class="btn-hero-wa" id="hero-wa" href="#" target="_blank" rel="noopener">
-          <span class="hero-wa-icon">✦</span>
-          <span>Consultar ahora</span>
-        </a>
-      </div>
-      <div class="hero-metrics">
-        <article class="hero-metric-card">
-          <span class="metric-value">500+</span>
-          <span class="metric-label">Productos visibles</span>
-        </article>
-        <article class="hero-metric-card">
-          <span class="metric-value">24/7</span>
-          <span class="metric-label">Catálogo siempre disponible</span>
-        </article>
-        <article class="hero-metric-card">
-          <span class="metric-value">1 clic</span>
-          <span class="metric-label">Del producto al chat</span>
-        </article>
-      </div>
-    </section>
-
-    <aside class="hero-showcase">
-      <div class="showcase-panel showcase-panel-main">
-        <div class="showcase-line"></div>
-        <div class="showcase-chip">COTILLÓN BAMBINOS</div>
-        <h2>Momentos inolvidables para cada ocasión 🎈</h2>
-        <p>Todo para tus fiestas y creaciones: repostería, cotillón, juguetes y artículos de papelería. Elegí con facilidad, creá sin límites y encontrá todo en un solo lugar. Retirá tu pedido en Polonia 1049, José C. Paz, con atención cercana y rápida.</p>
-        <div class="showcase-tags">
-          <span>Repostería creativa</span>
-          <span>Juguetes y diversión</span>
-          <span>Cotillón y decoración</span>
-        </div>
-      </div>
-
-      <div class="hero-emojis">
-        <div class="he-item hi-rose">
-          <div class="he-img-wrap">
-            <img class="he-img" src="img/crema-ledevit-vainilla-500gr.png" alt="Base para tortas">
-          </div>
-          <div class="he-info">
-            <div class="he-name">Repostería de impacto</div>
-            <div class="he-sub">Bases, cremas y coberturas</div>
-            <div class="he-price">Alta rotación</div>
-          </div>
-          <span class="he-arrow">→</span>
-        </div>
-
-        <div class="he-item hi-lav">
-          <div class="he-img-wrap">
-            <img class="he-img" src="img/Pasta-ballina-rosa-500gr.png" alt="Decoración creativa">
-          </div>
-          <div class="he-info">
-            <div class="he-name">Arte y decoración</div>
-            <div class="he-sub">Pastas, color y terminación</div>
-            <div class="he-price">Custom vibes</div>
-          </div>
-          <span class="he-arrow">→</span>
-        </div>
-
-        <div class="he-item hi-mint">
-          <div class="he-img-wrap">
-            <img class="he-img" src="img/micky-frutilla-mapsa-450gr.png" alt="Dulces de fiesta">
-          </div>
-          <div class="he-info">
-            <div class="he-name">Dulces protagonistas</div>
-            <div class="he-sub">Texturas, rellenos y candy bar</div>
-            <div class="he-price">Pedido rápido</div>
-          </div>
-          <span class="he-arrow">→</span>
-        </div>
-      </div>
-    </aside>
-  </div>
-</header>
-
-<section class="signal-strip" aria-label="Ventajas del catálogo">
-  <div class="signal-strip-inner">
-    <article class="signal-card">
-      <span class="signal-index">01</span>
-      <h3>Elegí tus productos</h3>
-      <p>Explorá nuestro catálogo y encontrá todo en repostería, cotillón, juguetería y papelería.</p>
-    </article>
-    <article class="signal-card">
-      <span class="signal-index">02</span>
-      <h3>Agregalos al carrito</h3>
-      <p>Seleccioná lo que necesitás y armá tu pedido de forma rápida y sencilla.</p>
-    </article>
-    <article class="signal-card">
-      <span class="signal-index">03</span>
-      <h3>Pedí en segundos</h3>
-      <p>Finalizá tu compra y coordiná tu pedido de manera fácil y sin vueltas.</p>
-    </article>
+    <div class="hero-trust reveal">
+      <span class="trust-pill">📍 Polonia 1049, JCP</span>
+      <span class="trust-pill">🕐 Coordinamos retiro por WhatsApp</span>
+      <span class="trust-pill">💵 Efectivo · Transferencia · MercadoPago</span>
+    </div>
   </div>
 </section>
 
-<div class="search-section">
-  <div class="search-inner">
-    <div class="search-bar-wrap">
-      <div class="search-box">
-        <img src="img/lupa.png" alt="Buscar" class="search-icon search-icon-img">
-        <input id="search-input" type="text" placeholder="Buscar por nombre, categoría o descripción…" autocomplete="off">
-        <button class="search-clear" id="search-clear" type="button" title="Limpiar">✕</button>
+
+<!-- ═══════════════════════════════════════════════════════
+     CATEGORÍAS — Visibles ya, sin esperar JS
+═══════════════════════════════════════════════════════ -->
+<section id="categorias" class="section section-categorias" aria-label="Categorías de productos">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">¿Qué estás buscando?</p>
+      <h2 class="section-title">Tenemos de todo para tu fiesta</h2>
+    </div>
+    <div class="categorias-grid" role="list" aria-label="Categorías de productos">
+      <a href="#catalogo" class="categoria-card" data-cat="Repostería" role="listitem">
+        <span class="cat-icon" aria-hidden="true">🎂</span>
+        <h3 class="cat-name">Repostería</h3>
+        <p class="cat-desc">Tortas, facturas, budines y dulces caseros</p>
+      </a>
+      <a href="#catalogo" class="categoria-card" data-cat="Dulces" role="listitem">
+        <span class="cat-icon" aria-hidden="true">🍬</span>
+        <h3 class="cat-name">Dulces y kiosco</h3>
+        <p class="cat-desc">Golosinas, chocolates, caramelos, pochoclos</p>
+      </a>
+      <a href="#catalogo" class="categoria-card" data-cat="Juguetes" role="listitem">
+        <span class="cat-icon" aria-hidden="true">🎲</span>
+        <h3 class="cat-name">Juguetes</h3>
+        <p class="cat-desc">Juguetes, sorpresas, regalos para los chicos</p>
+      </a>
+      <a href="#catalogo" class="categoria-card" data-cat="Máscaras" role="listitem">
+        <span class="cat-icon" aria-hidden="true">🎭</span>
+        <h3 class="cat-name">Máscaras y disfraces</h3>
+        <p class="cat-desc">Máscaras, antifaces, accesorios de disfraz</p>
+      </a>
+      <a href="#catalogo" class="categoria-card" data-cat="Combos" role="listitem">
+        <span class="cat-icon" aria-hidden="true">🌟</span>
+        <h3 class="cat-name">Combos temáticos</h3>
+        <p class="cat-desc">Kits listos: cumple, baby shower, graduación</p>
+      </a>
+    </div>
+    <p class="categorias-note reveal">💡 Tocá una categoría para filtrar el catálogo de abajo</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CÓMO COMPRAR — Simple, como siempre
+═══════════════════════════════════════════════════════ -->
+<section id="como-comprar" class="section section-como-comprar" aria-label="Cómo comprar">
+  <div class="container">
+    <div class="como-comprar-layout reveal">
+      <div class="como-comprar-info">
+        <h2 class="section-title">Comprar es fácil: vení o pedí por WhatsApp</h2>
+        <p class="section-sub">No hay vueltas. Elegís lo que querés, te pasamos el precio y coordinás el retiro.</p>
+        <ul class="como-comprar-lista">
+          <li><span class="lista-icon">🛍️</span> <strong>Mirá el catálogo</strong> acá abajo o vení a Polonia 1049</li>
+          <li><span class="lista-icon">💬</span> <strong>Pedí por WhatsApp</strong> con el carrito o escribinos directo</li>
+          <li><span class="lista-icon">🕐</span> <strong>Coordinamos retiro</strong> el día y horario que te quede bien</li>
+          <li><span class="lista-icon">💵</span> <strong>Pagás al retirar</strong> en efectivo, transferencia o MercadoPago</li>
+        </ul>
+      </div>
+      <div class="como-comprar-visual" aria-hidden="true">
+        <div class="como-steps-visual">
+          <div class="como-step">
+            <span class="como-step-num">1</span>
+            <p>Elegís</p>
+          </div>
+          <div class="como-arrow">→</div>
+          <div class="como-step">
+            <span class="como-step-num">2</span>
+            <p>Pedís</p>
+          </div>
+          <div class="como-arrow">→</div>
+          <div class="como-step">
+            <span class="como-step-num">3</span>
+            <p>Retirá</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="filter-chips">
-      <button class="chip active" data-cat="todos" type="button">Todos</button>
-      <button class="chip" data-cat="reposteria" type="button">Repostería</button>
-      <button class="chip" data-cat="dulces" type="button">Dulces</button>
-      <button class="chip" data-cat="mascaras" type="button">Máscaras</button>
-      <button class="chip" data-cat="juguetes" type="button">Juguetes</button>
-      <button class="chip" data-cat="cotillon" type="button">Cotillón</button>
-      <button class="chip" data-cat="combos" type="button">Combos</button>
-      <div class="chip-div"></div>
-      <select class="sort-select" id="sort-select" aria-label="Ordenar productos">
-        <option value="default">Ordenar</option>
-        <option value="price-asc">Menor precio</option>
-        <option value="price-desc">Mayor precio</option>
-        <option value="rating">Mejor valorados</option>
-      </select>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CATÁLOGO COMPLETO
+═══════════════════════════════════════════════════════ -->
+<section id="catalogo" class="section section-catalog" aria-label="Catálogo de productos">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Catálogo completo</h2>
+      <p class="section-sub">Filtrá por categoría, buscá por nombre y agregá al carrito. Los precios son de referencia; el final se coordina por WhatsApp.</p>
+    </div>
+
+    <!-- Buscador + Filtros + Orden -->
+    <div class="catalog-controls reveal">
+      <div class="catalog-search-wrap">
+        <label for="catalog-search" class="sr-only">Buscar productos</label>
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input type="search" id="catalog-search" class="catalog-search"
+               placeholder="Buscar productos..." autocomplete="off">
+      </div>
+      <!-- Los filtros se generan dinámicamente desde los productos reales (lib/main.js → buildFilters) -->
+      <div class="catalog-filters" role="group" aria-label="Filtrar por categoría">
+        <button class="filter-btn active" data-cat="Todos" aria-pressed="true">Todos</button>
+      </div>
+      <div class="catalog-sort-wrap">
+        <label for="catalog-sort" class="sr-only">Ordenar productos</label>
+        <select id="catalog-sort" class="catalog-sort" aria-label="Ordenar por">
+          <option value="default">Más populares</option>
+          <option value="price-asc">Menor precio</option>
+          <option value="price-desc">Mayor precio</option>
+          <option value="rating">Mejor valorados</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="catalog-meta">
+      <span id="catalog-count" class="catalog-count" aria-live="polite">Cargando…</span>
+    </div>
+
+    <!-- Grid de productos -->
+    <div id="catalog-grid" class="products-grid" aria-label="Productos del catálogo">
+      <!-- JS: initCatalog() rellena esto -->
+      <div class="catalog-loading" aria-label="Cargando productos">
+        <div class="loading-spinner"></div>
+        <p>Cargando productos...</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<main class="catalogue-shell">
-  <div class="catalogue">
-    <div class="catalogue-bg"></div>
-    <div class="touch-hint">Tocá un producto para ver detalles y pedir</div>
-    <div id="catalogue-output"></div>
+<!-- ═══════════════════════════════════════════════════════
+     PRODUCTOS DESTACADOS — Lo que más sale
+═══════════════════════════════════════════════════════ -->
+<section id="destacados" class="section section-featured" aria-label="Productos destacados">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Lo que más sale para las fiestas</h2>
+      <p class="section-sub">Estos son los productos que no faltan en ningún cumple, baby shower o evento. Hacé clic para ver detalles y sumar al carrito.</p>
+    </div>
+
+    <!-- Grid de productos destacados -->
+    <div id="featured-prod-grid" class="products-grid featured-prod-grid">
+      <!-- JS: initFeaturedProducts() rellena esto -->
+      <div class="catalog-loading">
+        <div class="loading-spinner"></div>
+        <p>Cargando destacados...</p>
+      </div>
+    </div>
   </div>
-</main>
+</section>
 
-<footer>
-  <div class="footer-inner">
-    <div>
-      <a href="#" class="footer-logo">
-        <div class="footer-logo-icon">✦</div>
-        <div class="footer-logo-text">Bambinos<span>Cotillón y repostería</span></div>
-      </a>
-      <p class="footer-desc">Repostería artesanal, cotillón temático, juguetes y detalles para fiestas con una presentación digital más potente y una salida de compra directa por WhatsApp.</p>
-      <a class="footer-wa-link" id="footer-wa" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+<!-- ═══════════════════════════════════════════════════════
+     CTA WHATSAPP — El canal principal
+═══════════════════════════════════════════════════════ -->
+<section id="pedido-wa" class="section section-wa-cta" aria-label="Pedí por WhatsApp">
+  <div class="container">
+    <div class="wa-cta-inner reveal">
+      <div class="wa-cta-emoji" aria-hidden="true">💬</div>
+      <h2 class="wa-cta-title">¿Tenés todo listo para tu fiesta?</h2>
+      <p class="wa-cta-sub">Mandanos el pedido por WhatsApp y en minutos te pasamos el total y coordinamos el retiro.</p>
+      <div class="wa-cta-btns">
+        <button id="wa-cart-btn" class="btn btn-wa btn-lg" aria-label="Finalizar pedido con carrito por WhatsApp">
+          <span>🛒</span> Enviar carrito por WhatsApp
+        </button>
+        <a id="wa-now-btn" href="#" class="btn btn-outline-wa btn-lg" target="_blank" rel="noopener" aria-label="Escribir ahora por WhatsApp">
+          <span>💬</span> Escribinos directo
+        </a>
+      </div>
+      <p class="wa-cta-note">📍 También vení a Polonia 1049, José C. Paz — te atendemos en el mostrador</p>
     </div>
-    <div>
-      <div class="footer-col-title">Catálogo</div>
-      <ul class="footer-links">
-        <li><a href="#">Repostería artesanal</a></li>
-        <li><a href="#">Dulces y kiosco</a></li>
-        <li><a href="#">Máscaras y disfraces</a></li>
-        <li><a href="#">Juguetes y sorpresas</a></li>
-        <li><a href="#">Cotillón festivo</a></li>
-        <li><a href="#">Combos temáticos</a></li>
-      </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     UBICACIÓN Y RETIRO — Vení cuando quieras
+═══════════════════════════════════════════════════════ -->
+<section id="ubicacion" class="section section-location" aria-label="Dónde estamos y retiro">
+  <div class="container">
+    <div class="location-layout">
+      <div class="location-info reveal">
+        <h2 class="section-title">Retirá en Polonia 1049, José C. Paz</h2>
+        <p class="location-lead">No hacemos envíos: coordinás el día y horario por WhatsApp y pasás a buscarlo. Así de simple.</p>
+        <div class="location-details">
+          <div class="location-detail">
+            <span class="loc-icon" aria-hidden="true">📍</span>
+            <div>
+              <strong>Dirección</strong>
+              <p id="loc-address" data-contact-address>Polonia 1049, José C. Paz, Buenos Aires, Argentina</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <span class="loc-icon" aria-hidden="true">🕐</span>
+            <div>
+              <strong>Retiro en tienda</strong>
+              <p>Coordinamos día y horario por WhatsApp</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <span class="loc-icon" aria-hidden="true">💬</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <p><a id="loc-phone" href="#" data-contact-phone>+54 9 11 4000-0000</a></p>
+            </div>
+          </div>
+        </div>
+        <a id="map-link" href="#" target="_blank" rel="noopener" class="btn btn-outline btn-location">
+          <span>🗺️</span> Ver en Google Maps
+        </a>
+      </div>
+
+      <div class="location-map reveal">
+        <div class="map-container">
+          <iframe id="map-iframe"
+            title="Ubicación Cotillón Bambinos"
+            width="100%" height="100%"
+            style="border:0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="about:blank">
+          </iframe>
+          <div class="map-pin-overlay" aria-hidden="true">
+            <div class="map-pin">
+              <span>🎉</span>
+              <div class="map-pin-label">Cotillón Bambinos</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Cotillón Bambinos. Catálogo visual optimizado para Argentina.</div>
-    <div class="footer-payments">
-      <span class="pay-badge">VISA</span>
-      <span class="pay-badge">MC</span>
-      <span class="pay-badge">AMEX</span>
-      <span class="pay-badge">MP</span>
-      <span class="pay-badge">DÉBITO</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CARRITO — DRAWER LATERAL
+═══════════════════════════════════════════════════════ -->
+<div id="cart-overlay" class="cart-overlay" aria-hidden="true"></div>
+
+<aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Carrito de compras">
+  <div class="cart-header">
+    <div class="cart-title">
+      <span class="cart-title-emoji" aria-hidden="true">🛒</span>
+      <span>Tu carrito</span>
+    </div>
+    <button id="cart-close" class="cart-close" aria-label="Cerrar carrito">×</button>
+  </div>
+
+  <div id="cart-body" class="cart-body">
+    <!-- JS: cartRender() rellena esto -->
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>Tu carrito está vacío</p>
+      <span>Agregá productos del catálogo</span>
+    </div>
+  </div>
+
+  <div id="cart-footer" class="cart-footer hidden">
+    <div class="cart-total">
+      <span>Total estimado</span>
+      <span id="cart-total-price" class="cart-total-price">$0</span>
+    </div>
+    <label for="cart-customer-name" class="cart-name-label">Tu nombre</label>
+    <input type="text" id="cart-customer-name" class="cart-name-input" placeholder="¿Cómo te llamás?" autocomplete="name">
+    <p class="cart-note">* El precio final se coordina con el vendedor por WhatsApp</p>
+    <button id="cart-wa-btn" class="btn btn-wa btn-full" aria-label="Finalizar pedido por WhatsApp">
+      <span>💬</span> Finalizar por WhatsApp
+    </button>
+    <button class="btn btn-outline-dark btn-full btn-continue" onclick="document.getElementById('cart-close').click()" aria-label="Seguir comprando">
+      Seguir comprando
+    </button>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER — Claro, útil y con todo lo que sirve
+═══════════════════════════════════════════════════════ -->
+<footer id="footer" class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Marca + WhatsApp principal -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="footer-logo-emoji" aria-hidden="true">🎉</span>
+          <span class="footer-logo-text">Cotillón Bambinos</span>
+        </div>
+        <p class="footer-tagline">Hace 15 años armando fiestas en José C. Paz. Conocemos cada cumple, cada baby shower, cada graduación.</p>
+        <a id="footer-wa-btn" href="#" class="btn btn-wa btn-sm footer-wa" target="_blank" rel="noopener" aria-label="Pedí por WhatsApp">
+          <span aria-hidden="true">💬</span> Pedí por WhatsApp
+        </a>
+      </div>
+
+      <!-- Categorías con enlaces directos al catálogo filtrado -->
+      <nav class="footer-nav" aria-label="Categorías de productos">
+        <h4 class="footer-nav-title">Qué vendemos</h4>
+        <ul role="list">
+          <li><a href="#catalogo" data-cat="Repostería">🎂 Repostería casera</a></li>
+          <li><a href="#catalogo" data-cat="Dulces">🍬 Dulces y kiosco</a></li>
+          <li><a href="#catalogo" data-cat="Juguetes">🎲 Juguetes y sorpresas</a></li>
+          <li><a href="#catalogo" data-cat="Máscaras">🎭 Máscaras y disfraces</a></li>
+          <li><a href="#catalogo" data-cat="Combos">🌟 Combos listos para regalar</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ubicación, horarios, teléfono, Instagram -->
+      <div class="footer-contact">
+        <h4 class="footer-nav-title">Dónde estamos</h4>
+        <div class="footer-contact-item">
+          <span aria-hidden="true">📍</span>
+          <address id="footer-address" data-contact-address style="font-style:normal">
+            <strong>Local: </strong>Polonia 1049, José C. Paz, Buenos Aires
+          </address>
+        </div>
+        <div class="footer-contact-item">
+          <span aria-hidden="true">🕐</span>
+          <div>
+            <strong>Retiro en tienda</strong>
+            <p>Coordinamos día y horario por WhatsApp</p>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <span aria-hidden="true">💬</span>
+          <a id="footer-phone" href="#" data-contact-phone>+54 9 11 4000-0000</a>
+        </div>
+        <div class="footer-contact-item">
+          <span aria-hidden="true">📸</span>
+          <a href="https://instagram.com/cotillonbambinos" target="_blank" rel="noopener">@cotillonbambinos en Instagram</a>
+        </div>
+      </div>
+
+      <!-- Medios de pago claros -->
+      <div class="footer-payments">
+        <h4 class="footer-nav-title">Cómo pagás</h4>
+        <div class="payment-badges">
+          <span class="payment-badge">💵 Efectivo</span>
+          <span class="payment-badge">💳 Transferencia</span>
+          <span class="payment-badge">📱 MercadoPago</span>
+          <span class="payment-badge">💰 Cuenta DNI</span>
+        </div>
+        <p class="footer-note">El precio final se acuerda por WhatsApp. No cobramos por la web.</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        © <span id="footer-year">2026</span> Cotillón Bambinos — Polonia 1049, José C. Paz, Buenos Aires.
+      </p>
+      <div class="footer-bottom-links">
+        <a href="#hero">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#" id="footer-wa-inline" aria-label="WhatsApp">💬 WhatsApp</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<a class="wa-fab" id="wa-fab" href="#" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
-  <div class="wa-fab-icon">✦<span class="wa-fab-pulse"></span></div>
-  <span class="wa-fab-label">Escribinos ahora</span>
-</a>
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS — GSAP + main (defer, no modules)
+═══════════════════════════════════════════════════════ -->
+<script src="lib/gsap.min.js?v=20260531" defer></script>
+<script src="lib/ScrollTrigger.min.js?v=20260531" defer></script>
+<script src="lib/manifest.js?v=20260531" defer></script>
+<script src="lib/main.js?v=20260531" defer></script>
 
-<aside id="cart-panel" class="cart-panel" aria-hidden="true">
-  <div class="cart-header">
-    <div class="cart-header-title">
-      <span class="cart-title-icon">🛒</span>
-      <span>Mi carrito</span>
-      <span id="cart-item-count" class="cart-item-count">0 productos</span>
-    </div>
-    <button id="cart-close" class="cart-close" type="button" aria-label="Cerrar carrito">✕</button>
-  </div>
-
-  <div id="cart-items" class="cart-items"></div>
-  <div id="cart-totals" class="cart-totals"></div>
-
-  <div class="cart-actions">
-    <button id="cart-clear" class="btn-cart-clear" type="button">Vaciar carrito</button>
-    <a id="cart-checkout" class="btn-cart-checkout" href="#" target="_blank" rel="noopener">
-      <span>Finalizar pedido por WhatsApp</span>
-    </a>
-  </div>
-</aside>
-
-<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
-
-<script src="app.js"></script>
 </body>
 </html>
