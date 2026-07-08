@@ -8,6 +8,9 @@
   <meta property="og:title" content="Cotillón Bambinos — Todo para tu fiesta">
   <meta property="og:description" content="Repostería, dulces, juguetes, máscaras y combos. Polonia 1049, José C. Paz. Pedí por WhatsApp.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cotillonbambinos.github.io/cotillon_bambinos/assets/img/logo.png">
+  <meta property="og:url" content="https://cotillonbambinos.github.io/cotillon_bambinos/">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Cotillón Bambinos — Todo para tu fiesta</title>
 
   <!-- Favicon inline SVG -->
@@ -18,10 +21,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="lib/style.css?v=20260531">
+
+  <!-- Fallback: si el usuario tiene JS deshabilitado, no ocultar el contenido -->
+  <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+
+  <!-- Datos estructurados para SEO local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Cotillón Bambinos",
+    "image": "https://cotillonbambinos.github.io/cotillon_bambinos/assets/img/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Polonia 1049",
+      "addressLocality": "José C. Paz",
+      "addressRegion": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "telephone": "+5491158404213",
+    "priceRange": "$$"
+  }
+  </script>
 </head>
 <body>
 
@@ -362,7 +387,7 @@
     <button id="cart-wa-btn" class="btn btn-wa btn-full" aria-label="Finalizar pedido por WhatsApp">
       <span>💬</span> Finalizar por WhatsApp
     </button>
-    <button class="btn btn-outline-dark btn-full btn-continue" onclick="document.getElementById('cart-close').click()" aria-label="Seguir comprando">
+    <button id="cart-continue-btn" class="btn btn-outline-dark btn-full btn-continue" aria-label="Seguir comprando">
       Seguir comprando
     </button>
   </div>
