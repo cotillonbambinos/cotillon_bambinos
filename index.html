@@ -394,6 +394,44 @@
 </aside>
 
 <!-- ═══════════════════════════════════════════════════════
+     VISTA RÁPIDA (QUICK VIEW) — modal único reutilizable
+═══════════════════════════════════════════════════════ -->
+<div id="qv-overlay" class="qv-overlay" aria-hidden="true"></div>
+
+<div id="qv-modal" class="qv-modal" role="dialog" aria-modal="true" aria-labelledby="qv-name" aria-hidden="true">
+  <button id="qv-close" class="qv-close" aria-label="Cerrar vista rápida">×</button>
+  <div class="qv-content">
+    <div class="qv-media">
+      <img id="qv-img" class="qv-img" src="assets/img/placeholder.svg" alt="">
+    </div>
+    <div class="qv-info">
+      <div id="qv-cat" class="prod-cat-tag"></div>
+      <h2 id="qv-name" class="qv-name"></h2>
+      <div id="qv-stars" class="prod-stars"></div>
+      <div id="qv-price" class="qv-price"></div>
+      <div id="qv-stock" class="prod-stock"></div>
+      <p id="qv-desc" class="qv-desc"></p>
+
+      <div id="qv-variant-group" class="qv-variant-group hidden">
+        <span id="qv-variant-label" class="qv-variant-label"></span>
+        <div id="qv-chips" class="qv-chips"></div>
+      </div>
+
+      <div class="qv-qty-row">
+        <span class="qv-qty-label">Cantidad</span>
+        <div class="qv-qty-control">
+          <button id="qv-qty-minus" class="qv-qty-btn" aria-label="Quitar uno">−</button>
+          <span id="qv-qty-val" class="qv-qty-val">1</span>
+          <button id="qv-qty-plus" class="qv-qty-btn" aria-label="Agregar uno">+</button>
+        </div>
+      </div>
+
+      <button id="qv-add-btn" class="btn btn-primary btn-full qv-add-btn">+ Agregar al carrito</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
      FOOTER — Claro, útil y con todo lo que sirve
 ═══════════════════════════════════════════════════════ -->
 <footer id="footer" class="footer" role="contentinfo">
